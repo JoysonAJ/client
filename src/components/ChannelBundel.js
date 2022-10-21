@@ -29,10 +29,10 @@ function ChannelBundel({channel}) {
                 <div className="channel-type-selection mt-3">
                     <div className={"w-100 m-2"}>
                         <p>
-                            Plan type :
+                            Plan :
                         </p>
 
-                        <select className={"form-control"} value={planType} onChange={(e) => {
+                        <select className={"form-control border border-primary rounded"} value={planType} onChange={(e) => {
                             setPlanType(e.target.value)
                         }}>
                             {channel.type.map(planType => {
@@ -51,7 +51,7 @@ function ChannelBundel({channel}) {
                             Validity
                         </p>
                         {/*Event handling for plan type*/}
-                        <select className={"form-control"} value={planType} onChange={(e) => {
+                        <select className={"form-control border border-dark     "} value={planType} onChange={(e) => {
                             setPlanTime(e.target.value)
                         }}>
                             {[...Array(12).keys()].map((x, i) => {

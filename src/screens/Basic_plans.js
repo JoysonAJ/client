@@ -22,20 +22,20 @@ function BasicPlans(props) {
 
     return (
         <>
-            <div className="row">
+            <div className="row ">
 
                 {loading ? (<h1>Loading</h1>) : error ? (<h1>Something went wrong
-                        {
-                            console.log(`${loading} \n ${error} \n ${channelBasic}`)
-                        }
+                        {/*{*/}
+                        {/*    console.log(`${loading} \n ${error} \n ${channelBasic}`)*/}
+                        {/*}*/}
                 </h1>)
                     : (
                         //Channel contains data from the data base
                         channelBasic.map(channel => {
                             return (
-                                <div className="col-md-4 p-3">
-                                    <div className={"channel-pack-style"}>
-                                        <ChannelBundel channel={channel}/>
+                                <div className="col-md-4 p-10" key={channel._id}>
+                                    <div className={"channel-pack-style m-5 "}>
+                                        <ChannelBundel channel={channel} />
                                     </div>
 
                                 </div>
