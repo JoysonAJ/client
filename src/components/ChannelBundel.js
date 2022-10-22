@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import {Button, Modal} from "react-bootstrap";
+import {useDispatch, useSelector} from "react-redux";
+import {addToCart} from "../actions/cartAction";
 
 function ChannelBundel({channel}) {
 
@@ -11,9 +13,15 @@ function ChannelBundel({channel}) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const dispatch = useDispatch();
 
-    return (
-        <>
+    function AddToCart() {
+        // dispatch(addToCart(channel, validity, plan_type))
+        //value pass to cart Page
+        dispatch(addToCart(channel, planTime, planType));
+    }
+
+    return (<>
             {/*channel heading*/}
             <div className={"font-imported shadow-lg p-3 mb-5 bg-white"}>
                 <div onClick={handleShow}>
@@ -32,15 +40,14 @@ function ChannelBundel({channel}) {
                             Plan :
                         </p>
 
-                        <select className={"form-control border border-primary rounded"} value={planType} onChange={(e) => {
-                            setPlanType(e.target.value)
-                        }}>
+                        <select className={"form-control border border-primary rounded"} value={planType}
+                                onChange={(e) => {
+                                    setPlanType(e.target.value)
+                                }}>
                             {channel.type.map(planType => {
-                                return (
-                                    <option value={planType}>
+                                return (<option value={planType}>
                                         {planType}
-                                    </option>
-                                )
+                                    </option>)
                             })}
 
                         </select>
@@ -55,11 +62,9 @@ function ChannelBundel({channel}) {
                             setPlanTime(e.target.value)
                         }}>
                             {[...Array(12).keys()].map((x, i) => {
-                                return (
-                                    <option value={i + 1}>
+                                return (<option value={i + 1}>
                                         {i + 1}
-                                    </option>
-                                )
+                                    </option>)
                             })}
 
                         </select>
@@ -74,7 +79,7 @@ function ChannelBundel({channel}) {
                     </div>
 
                     <div className={"w-100 m-2"}>
-                        <button className={"btn btn-danger cart-btn"}>
+                        <button className={"btn btn-danger cart-btn"} onClick={AddToCart}>
                             ADD TO CART
                         </button>
                     </div>

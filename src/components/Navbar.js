@@ -1,8 +1,12 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {CartReducer} from "../reducers/cartReducer";
 
 
 export default function Navbar() {
+
+    const cartState = useSelector(state => state.CartReducer);
     return (
         <>
             <div className={"navbar-font"}>
@@ -38,7 +42,7 @@ export default function Navbar() {
                                 <li className="nav-item">
                                     {/* <li class="nav-item" style="width: 65px;"> */}
                                     <Link className="nav-link d-flex align-items-center" to="/about">
-                                        Cart
+                                        Cart {cartState.cartItem.length}
                                     </Link>
                                 </li>
                                 <li className="nav-item dropdown p-md-0">
