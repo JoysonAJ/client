@@ -41,7 +41,7 @@ export default function Navbar() {
                                 </li>
                                 <li className="nav-item">
                                     {/* <li class="nav-item" style="width: 65px;"> */}
-                                    <Link className="nav-link d-flex align-items-center" to="/about">
+                                    <Link className="nav-link d-flex align-items-center" to="/cart">
                                         Cart {cartState.cartItem.length}
                                     </Link>
                                 </li>

@@ -24,13 +24,15 @@ function ChannelBundel({channel}) {
     return (<>
             {/*channel heading*/}
             <div className={"font-imported shadow-lg p-3 mb-5 bg-white"}>
-                <div onClick={handleShow}>
-                    <h1 className="pack_name m-2">
+                <div onClick={handleShow} >
+                    <h1 className="pack_name m-2 d-flex justify-content-center">
                         {channel.name.toUpperCase()}
                         {/*    Searching bar time */}
                     </h1>
                     {/*Channel Image needs to be chaaged*/}
-                    <img src={channel.image} className="img-fluid pack_image"/>
+                    <div className={"d-flex justify-content-center p-1"}>
+                        <img src={channel.image} className="img-fluid pack_image d-flex mt-3 "/>
+                    </div>
                 </div>
 
                 {/* channel type and price selection */}
@@ -73,13 +75,13 @@ function ChannelBundel({channel}) {
 
                 <div className="channel-type-selection mt-3">
                     <div className={"w-100 m-2"}>
-                        <h3 className={"pack_name"}>
+                        <h3 className={"pack_name p-3"}>
                             Price : {channel.price[0][planType] * planTime}
                         </h3>
                     </div>
 
                     <div className={"w-100 m-2"}>
-                        <button className={"btn btn-danger cart-btn"} onClick={AddToCart}>
+                        <button className={"btn btn-danger cart-btn p-3"} onClick={AddToCart}>
                             ADD TO CART
                         </button>
                     </div>
