@@ -49,6 +49,16 @@ code {
   font-family: 'Roboto Slab', serif !important;
 }
 
+/*resposive*/
+
+@media screen and (max-width: 600px) {
+  .navbar-font a:not(:first-child) {display: none;}
+  .navbar-font a.icon {
+    float: right;
+    display: block;
+  }
+}
+
 section{
   box-shadow: none !important;
   border: 2px solid black !important;

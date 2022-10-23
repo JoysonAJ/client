@@ -9,7 +9,7 @@ export default function Navbar() {
     const cartState = useSelector(state => state.CartReducer);
     return (
         <>
-            <div className={"navbar-font"}>
+            <div className={"navbar-font col"}>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg p-3 mb-5 bg-dark ">
                     <div className="container">
                         {/* Navbar brand */}
@@ -29,7 +29,7 @@ export default function Navbar() {
                                     <Link className="nav-link d-flex align-items-end" to="/">Home</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link d-flex align-items-center me-3" to="/login">
+                                    <Link className="nav-link d-flex align-items-center me-3" to="/Login">
                                         <i className="fas fa-bookmark pe-2"/>Sign In
                                     </Link>
                                 </li>

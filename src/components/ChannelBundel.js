@@ -60,7 +60,7 @@ function ChannelBundel({channel}) {
                             Validity
                         </p>
                         {/*Event handling for plan type*/}
-                        <select className={"form-control border border-dark     "} value={planType} onChange={(e) => {
+                        <select className={"form-control border border-dark     "} value={planTime} onChange={(e) => {
                             setPlanTime(e.target.value)
                         }}>
                             {[...Array(12).keys()].map((x, i) => {
