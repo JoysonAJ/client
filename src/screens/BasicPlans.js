@@ -4,6 +4,8 @@ import ChannelBundel from "../components/ChannelBundel";
 import {useDispatch, useSelector} from "react-redux";
 import {getAllChannel} from "../actions/chBasicAction";
 import data from "../packData";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
 
 
 function BasicPlans(props) {
@@ -24,25 +26,23 @@ function BasicPlans(props) {
         <>
             <div className="row ">
 
-                {loading ? (<h1>Loading</h1>) : error ? (<h1>Something went wrong
-                        {/*{*/}
-                        {/*    console.log(`${loading} \n ${error} \n ${channelBasic}`)*/}
-                        {/*}*/}
-                </h1>)
-                    : (
+                {loading ? (<Loading/>) :
+                    error ? (<Error error='Something went Wrong'/>
+                    ) : (
                         //Channel contains data from the data base
+
                         channelBasic.map(channel => {
                             return (
                                 <div className="col-md-4 p-10" key={channel._id}>
                                     <div className={"channel-pack-style m-5 "}>
-                                        <ChannelBundel channel={channel} />
+                                        <ChannelBundel channel={channel}/>
                                     </div>
 
                                 </div>
                             );
                         })
                     )
-                 }
+                }
 
                 {/*{data.map(channel => {*/}
                 {/*    return (*/}

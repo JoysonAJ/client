@@ -9,6 +9,7 @@ export const getAllChannel = () => async dispatch => {
         // const response = await axios.get("/api/channel/getallchannel");
         //path from backend to front end...... half a day wasted
         const response = await axios.get("api/channel/channelbasic");
+
         dispatch({type: 'GET_PIZZAS_SUCCESS', payload: response.data})
         console.log(response)
     } catch (e) {

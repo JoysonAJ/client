@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {registerUser} from "../actions/userAction";
 
 
 function RegisterScreen(props) {
@@ -8,14 +10,18 @@ function RegisterScreen(props) {
     const [email, setEmail] = useState("");
     const [cnfrmPassword, setCnfrmPassword] = useState("");
 
+    //Dispatch all data to backend..........................................
+    const dispatch = useDispatch();
+
     const HandleRegister = () => {
         if (password !== cnfrmPassword) {
             alert("Password should match")
         } else {
             const userInfo = {
-                name, email, password
+                name, email, userId, password
             }
             console.log(userInfo);
+            dispatch(registerUser(userInfo  ));
         }
 
     }
@@ -83,8 +89,8 @@ function RegisterScreen(props) {
                                                setCnfrmPassword(e.target.value)
                                            }
                                        }
-                                       required/>
-                                <button className={"btn btn-primary mt-4 mb-0  p-3"}
+                                       />
+                                <button className={"btn btn-danger mt-4 mb-0  p-3 btn-register"}
                                         onClick={HandleRegister}
                                 >
                                     Register Now....

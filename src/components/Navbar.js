@@ -2,9 +2,13 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {CartReducer} from "../reducers/cartReducer";
+import {loginUser, logoutUser} from "../actions/userAction";
 
 
 export default function Navbar() {
+    const userState = useSelector(state => state.loginUserReducer)
+    const {currentUser} = userState;
+    const dispatch = useDispatch();
 
     const cartState = useSelector(state => state.CartReducer);
     return (
@@ -28,11 +32,11 @@ export default function Navbar() {
                                 <li className="nav-item me-3">
                                     <Link className="nav-link d-flex align-items-end" to="/">Home</Link>
                                 </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link d-flex align-items-center me-3" to="/Login">
-                                        <i className="fas fa-bookmark pe-2"/>Sign In
-                                    </Link>
-                                </li>
+                                {/*<li className="nav-item">*/}
+                                {/*    <Link className="nav-link d-flex align-items-center me-3" to="/Login">*/}
+                                {/*        <i className="fas fa-bookmark pe-2"/>Sign In*/}
+                                {/*    </Link>*/}
+                                {/*</li>*/}
                                 <li className="nav-item">
                                     {/* <li class="nav-item" style="width: 65px;"> */}
                                     <Link className="nav-link d-flex align-items-center" to="/">
@@ -45,22 +49,45 @@ export default function Navbar() {
                                         Cart {cartState.cartItem.length}
                                     </Link>
                                 </li>
-                                <li className="nav-item dropdown p-md-0">
-                                    <a className="nav-link dropdown-toggle" href="/" role="button"
-                                       data-bs-toggle="dropdown" aria-expanded="false">
-                                        User info
-                                    </a>
-                                    <ul className="dropdown-menu">
-                                        <li><a className="dropdown-item" href="./userDetails.html">Username</a></li>
-                                        <li><a className="dropdown-item" href="#">Community</a></li>
-                                        <li>
-                                            <hr className="dropdown-divider"/>
+                                {currentUser ?
+                                    (
+                                        <li className="nav-item dropdown p-md-0 ">
+                                            <a className="nav-link dropdown-toggle" href="/" role="button"
+                                               data-bs-toggle="dropdown" aria-expanded="false">
+                                                {currentUser.name}
+                                            </a>
+                                            <ul className="dropdown-menu  text-light bg-dark border border-warning user-drop-down">
+                                                <li className={"drop-down-login-details"}>
+                                                    <a className="dropdown-item text-light " href="./userDetails.html">..My
+                                                        status </a>
+                                                </li>
+                                                <li className={"drop-down-login-details"}>
+                                                    <a className="dropdown-item text-light " href="#">Community</a>
+                                                </li>
+                                                <li>
+                                                    <hr className="dropdown-divider"/>
+                                                </li>
+                                                <li>
+                                                    <button type="button" className="btn btn-primary btn-sm btn-logout"
+                                                            onClick={() => {
+                                                                dispatch(logoutUser())
+                                                            }
+                                                            }
+                                                    >
+                                                        Sign Out
+                                                    </button>
+                                                </li>
+                                            </ul>
                                         </li>
-                                        <li><a className="dropdown-item" href="./index.html">
-                                            <button type="button" className="btn btn-primary btn-sm">Sign Out</button>
-                                        </a></li>
-                                    </ul>
-                                </li>
+                                    ) :
+
+                                    (
+                                        <li className="nav-item">
+                                            <Link className="nav-link d-flex align-items-center me-3" to="/Login">
+                                                <i className="fas fa-bookmark pe-2"/>Sign In
+                                            </Link>
+                                        </li>
+                                    )}
                             </ul>
                         </div>
                     </div>
