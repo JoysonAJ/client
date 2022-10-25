@@ -5,7 +5,9 @@ function Success(props) {
         <>
             <div>
                 <div className="alert alert-success" role="alert">
-
+                    <h2>
+                        {props.success}
+                    </h2>
                 </div>
             </div>
         </>

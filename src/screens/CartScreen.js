@@ -2,6 +2,7 @@ import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {CartReducer} from "../reducers/cartReducer";
 import {addToCart, deleteFromCart} from "../actions/cartAction";
+import CheckOut from "../components/CheckOut";
 
 function CartScreen(props) {
 
@@ -90,9 +91,7 @@ function CartScreen(props) {
                             Total Amount :
                             ₹ {totalAmount} /-
                         </h3>
-                        <button className={"btn btn-warning btn-outline-dark btn-lg m-3"}>
-                            RECHARGE NOW !
-                        </button>
+                       <CheckOut totalAmount={totalAmount}/>
                     </div>
 
                 </div>

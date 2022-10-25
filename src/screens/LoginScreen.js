@@ -1,14 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {loginUser} from "../actions/userAction";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
 
 function LoginScreen(props) {
 
     const [userId, setUserId] = useState("");
     const [password, setPassword] = useState("");
 
+    //Login status
+    const logInUserState = useSelector(state => state.loginUserReducer);
+    const{loading,error} = logInUserState;
+
     const dispatch = useDispatch();
+
 
     useEffect(() => {
        if(localStorage.getItem("currentUser")){
@@ -25,7 +32,11 @@ function LoginScreen(props) {
     return (
         <>
             <div className={"login-container"}>
+
                 <div className={"card loginCard shadow-lg p-3 mb-5 bg-white rounded border border-warning"}>
+                    {loading && (<Loading />)}
+                    {error && (<Error error={"Invalid ....."}/>)}
+
                     <div className=" mb-4 p-2  ">
                         <input type="text"
                                className="form-control p-2 mt-4 shadow-lg p-3 bg-white rounded border border-info"
