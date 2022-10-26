@@ -13,7 +13,7 @@ function CheckOut(props) {
 
         <>
             <div>
-                
+
                <StripeCheckout
                    token={HandleToken}
                    stripeKey={

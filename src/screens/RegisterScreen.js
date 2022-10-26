@@ -19,10 +19,13 @@ function RegisterScreen(props) {
 
     //text for registration successful..........................................
     const registerUserState = useSelector(state => state.registerUserReducer);
-    const{loading,success,error } = registerUserState;
+    const {loading, success, error} = registerUserState;
 
     const HandleRegister = () => {
-        if (password !== cnfrmPassword) {
+        if((name ==="") &&(userId ==="") && (password ==="") && (email === "") && (cnfrmPassword =="")){
+            alert("every field should be field")
+        }
+        else if (password !== cnfrmPassword) {
             alert("Password should match")
         } else {
             const userInfo = {
@@ -31,7 +34,6 @@ function RegisterScreen(props) {
             console.log(userInfo);
             dispatch(registerUser(userInfo));
         }
-
     }
 
     return (
@@ -41,9 +43,9 @@ function RegisterScreen(props) {
                     <div className={"row justify-content-center"}>
                         <div className={"col-md-5 text-left"}>
                             <div className={"form-group card p-4 border-primary"}>
-                                {loading && <Loading />}
-                                {success && < Success success={"Registration Completed........."} />}
-                                {error && <Error error={error} />}
+                                {loading && <Loading/>}
+                                {success && < Success success={"Registration Completed........."}/>}
+                                {error && <Error error={error}/>}
                                 <input type={"text"} placeholder={"Enter the Full Name"}
                                        className={"form-control loginInput border-success p-2"}
                                        required

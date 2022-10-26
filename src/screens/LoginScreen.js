@@ -16,7 +16,6 @@ function LoginScreen(props) {
 
     const dispatch = useDispatch();
 
-
     useEffect(() => {
        if(localStorage.getItem("currentUser")){
            window.location.href = "/";

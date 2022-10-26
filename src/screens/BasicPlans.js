@@ -26,8 +26,7 @@ function BasicPlans(props) {
         <>
             <div className="row ">
 
-                {loading ? (<Loading/>) :
-                    error ? (<Error error='Something went Wrong'/>
+                {loading ? (<Loading/>) : error ? (<Error error='Something went Wrong'/>
                     ) : (
                         //Channel contains data from the data base
 
