@@ -1,20 +1,24 @@
 import axios from "axios";
-import {useSelector} from "react-redux";
 
-export const rechargedPack = (token, subTotal) => async (dispatch, getState) => {
+
+export const rechargedPack = (token, subTotal) => async (dispatch,getState) => {
+
     dispatch({
         type: 'RECHARGE_ORDER_REQUEST'
-
     })
-    const userState = useSelector(state => state.loginUserReducer)
-    const {currentUser} = userState;
-
-    const cartState = useSelector(state => state.CartReducer);
-    const cartItem = cartState.cartItem;
-    // const dispatch = useDispatch()
 
     try {
-        const response = await axios.post("/api/orders/recharge_order", {token, subTotal, currentUser, cartItem})
+        const currentUser = getState().loginUserReducer.currentUser;
+        const cartItem = getState().CartReducer.cartItem;
+        // const dispatch = useDispatch()
+
+        const send_data = {
+            token, subTotal, currentUser, cartItem
+        }
+        const response = await axios.post("/api/orders/recharge_order", send_data)
+        // const response = await axios.post("/api/orders/recharge_order")
+
+
         dispatch({
             type: 'RECHARGE_ORDER_SUCCESS'
         })
@@ -23,7 +27,7 @@ export const rechargedPack = (token, subTotal) => async (dispatch, getState) => 
         dispatch({
             type: 'RECHARGE_ORDER_FAILED'
         })
-        console.log(e)
+        // console.log(e)
     }
 
-}
+};

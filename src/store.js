@@ -4,13 +4,15 @@ import {composeWithDevTools} from "redux-devtools-extension";
 import {getAllChannelReducers} from "./reducers/chBasicReducers";
 import {CartReducer} from "./reducers/cartReducer";
 import {loginUserReducer, registerUserReducer} from "./reducers/userReducer";
+import {rechargeOrderReducer} from "./reducers/orderReducer";
 
 
 const finalReducer = combineReducers({
     getAllChannelReducers: getAllChannelReducers,
     CartReducer: CartReducer,
     registerUserReducer: registerUserReducer,
-    loginUserReducer: loginUserReducer
+    loginUserReducer: loginUserReducer,
+    rechargeOrderReducer:rechargeOrderReducer
 })
 
 const cartItem = localStorage.getItem('cartItem') ? JSON.parse(localStorage.getItem('cartItem')) : []
@@ -24,6 +26,10 @@ const initialState = {
     },
     loginUserReducer: {
         currentUser: currentUser
+    },
+    rechargeOrderReducer:{
+        cartItem:cartItem,
+        currentUser:currentUser
     }
 
 }
