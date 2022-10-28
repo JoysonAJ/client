@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-export const rechargedPack = (token, subTotal) => async (dispatch,getState) => {
+export const rechargedPack = (token, subTotal) => async (dispatch, getState) => {
 
     dispatch({
         type: 'RECHARGE_ORDER_REQUEST'
@@ -31,3 +31,26 @@ export const rechargedPack = (token, subTotal) => async (dispatch,getState) => {
     }
 
 };
+
+export const getUserOrder = () => async (dispatch, getState) => {
+    const currentUser = getState().loginUserReducer.currentUser;
+    dispatch({
+        type: 'USER_ORDER_REQUEST'
+    })
+
+    try {
+            const response = await axios.post('/api/getorder/getuserorder', {
+            userid: currentUser._id
+        });
+        console.log(response);
+        dispatch({
+            type: 'USER_ORDER_SUCCESS',
+            payload: response.data,
+        });
+    } catch (e) {
+        dispatch({
+            type: 'USER_ORDER_FAILED',
+            payload: e,
+        });
+    }
+}

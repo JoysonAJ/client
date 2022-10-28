@@ -3,8 +3,13 @@ import StripeCheckout from "react-stripe-checkout";
 import {useDispatch, useSelector} from "react-redux";
 import {rechargeOrderReducer} from "../reducers/orderReducer";
 import {rechargedPack} from "../actions/oderAction";
+import Loading from "./Loading";
+import Success from "./Success";
+import Error from "./Error";
 
 function CheckOut(props) {
+    const orderState = useSelector(state => state.rechargeOrderReducer)
+    const {success, loading, error} = orderState
 
     const dispatch = useDispatch();
     //oderAction file is rechargedPack
@@ -22,11 +27,9 @@ function CheckOut(props) {
     return (
 
         <>
-            <div>
-
-            </div>
 
             <div>
+
                 <StripeCheckout
                     token={HandleToken}
                     // shippingAddress
@@ -36,6 +39,7 @@ function CheckOut(props) {
                     amount={(props.totalAmount) * 100}
                     currency={"INR"}
                 >
+
                     <button className={"btn btn-warning btn-outline-dark btn-lg m-3"}>
                         RECHARGE NOW !
                     </button>

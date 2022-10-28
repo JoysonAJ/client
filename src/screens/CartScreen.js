@@ -3,9 +3,14 @@ import {useDispatch, useSelector} from "react-redux";
 import {CartReducer} from "../reducers/cartReducer";
 import {addToCart, deleteFromCart} from "../actions/cartAction";
 import CheckOut from "../components/CheckOut";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
+import Success from "../components/Success";
 
 function CartScreen(props) {
 
+    const orderState = useSelector(state => state.rechargeOrderReducer)
+    const {success,error, loading} = orderState
     const cartState = useSelector(state => state.CartReducer);
     const cartItem = cartState.cartItem;
     const dispatch = useDispatch()
@@ -16,6 +21,9 @@ function CartScreen(props) {
 
     return (
         <>
+            {loading && (<Loading/>)}
+            {error && (<Error error={"Not done payment"}/>)}
+            {success && <Success success={"Payment Completed plan will activate "}/>}
             <div>
                 <div className={""}>
                     <div className={"cart-heading"}>
