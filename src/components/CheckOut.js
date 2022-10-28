@@ -10,9 +10,9 @@ function CheckOut(props) {
     //oderAction file is rechargedPack
 
     const HandleToken = (token) => {
-        console.log(token)
-        console.log(currentUser)
-        console.log("\n\n\n\n");
+        // console.log(token)
+        // console.log(currentUser)
+        // console.log("\n\n\n\n");
         dispatch(rechargedPack(token, props.totalAmount))
     }
     const userState = useSelector(state => state.loginUserReducer)

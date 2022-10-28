@@ -1,7 +1,6 @@
 export const rechargeOrderReducer =(state={},action)=>{
     switch (action.type){
         case 'RECHARGE_ORDER_REQUEST':
-            console.log("HERE it is comming..")
             return({
                 loading:true
             })

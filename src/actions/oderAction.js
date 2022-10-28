@@ -17,7 +17,7 @@ export const rechargedPack = (token, subTotal) => async (dispatch,getState) => {
         }
         const response = await axios.post("/api/orders/recharge_order", send_data)
         // const response = await axios.post("/api/orders/recharge_order")
-
+        // console.log(response)
 
         dispatch({
             type: 'RECHARGE_ORDER_SUCCESS'
@@ -27,7 +27,7 @@ export const rechargedPack = (token, subTotal) => async (dispatch,getState) => {
         dispatch({
             type: 'RECHARGE_ORDER_FAILED'
         })
-        // console.log(e)
+        console.log(e)
     }
 
 };

@@ -58,8 +58,9 @@ export default function Navbar() {
                                             </a>
                                             <ul className="dropdown-menu  text-light bg-dark border border-warning user-drop-down">
                                                 <li className={"drop-down-login-details"}>
-                                                    <a className="dropdown-item text-light " href="./userDetails.html">..My
-                                                        status </a>
+                                                    <Link className="dropdown-item text-light " to="/mystatus">..My
+                                                        status
+                                                    </Link>
                                                 </li>
                                                 <li className={"drop-down-login-details"}>
                                                     <a className="dropdown-item text-light " href="#">Community</a>

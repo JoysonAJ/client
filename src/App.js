@@ -6,6 +6,7 @@ import Basic_plans from "./screens/BasicPlans";
 import CartScreen from "./screens/CartScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
+import OrderScreen from "./screens/OrderScreen";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
                     <Route exact path="/cart" element={<CartScreen/>}/>
                     <Route exact path="/Login" element={<LoginScreen/>}/>
                     <Route exact path="/register" element={<RegisterScreen/>} />
+                    <Route exact path="/mystatus" element={<OrderScreen/>} />
                         {/*<Route exact path="/" element={<Home_layout />} />*/}
                         {/*<Route exact path="/about" element={<About_page />} />*/}
                         {/*<Route exact path="/login" element={<Login />} />*/}
