@@ -9,7 +9,7 @@ import Error from "./Error";
 
 function CheckOut(props) {
     const orderState = useSelector(state => state.rechargeOrderReducer)
-    const {success, loading, error} = orderState
+    const {success, error, loading} = orderState
 
     const dispatch = useDispatch();
     //oderAction file is rechargedPack
@@ -27,7 +27,9 @@ function CheckOut(props) {
     return (
 
         <>
-
+            {loading && (<Loading/>)}
+            {error && (<Error error={"Not done payment"}/>)}
+            {success && <Success success={"Payment Completed plan will activate "}/>}
             <div>
 
                 <StripeCheckout

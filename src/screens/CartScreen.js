@@ -9,8 +9,8 @@ import Success from "../components/Success";
 
 function CartScreen(props) {
 
-    const orderState = useSelector(state => state.rechargeOrderReducer)
-    const {success,error, loading} = orderState
+    // const orderState = useSelector(state => state.rechargeOrderReducer)
+    // const {success,error, loading} = orderState
     const cartState = useSelector(state => state.CartReducer);
     const cartItem = cartState.cartItem;
     const dispatch = useDispatch()
@@ -21,9 +21,9 @@ function CartScreen(props) {
 
     return (
         <>
-            {loading && (<Loading/>)}
-            {error && (<Error error={"Not done payment"}/>)}
-            {success && <Success success={"Payment Completed plan will activate "}/>}
+            {/*{loading && (<Loading/>)}*/}
+            {/*{error && (<Error error={"Not done payment"}/>)}*/}
+            {/*{success && <Success success={"Payment Completed plan will activate "}/>}*/}
             <div>
                 <div className={""}>
                     <div className={"cart-heading"}>

@@ -5,6 +5,7 @@ import {getAllChannelReducers} from "./reducers/chBasicReducers";
 import {CartReducer} from "./reducers/cartReducer";
 import {loginUserReducer, registerUserReducer} from "./reducers/userReducer";
 import {rechargeOrderReducer} from "./reducers/orderReducer";
+import {getUserOrderReducer} from "./reducers/GetOrderReducer";
 
 
 const finalReducer = combineReducers({
@@ -12,7 +13,8 @@ const finalReducer = combineReducers({
     CartReducer: CartReducer,
     registerUserReducer: registerUserReducer,
     loginUserReducer: loginUserReducer,
-    rechargeOrderReducer:rechargeOrderReducer
+    rechargeOrderReducer:rechargeOrderReducer,
+    getUserOrderReducer:getUserOrderReducer
 })
 
 const cartItem = localStorage.getItem('cartItem') ? JSON.parse(localStorage.getItem('cartItem')) : []

@@ -38,9 +38,13 @@ export const getUserOrder = () => async (dispatch, getState) => {
         type: 'USER_ORDER_REQUEST'
     })
 
+
     try {
-            const response = await axios.post('/api/getorder/getuserorder', {
-            userid: currentUser._id
+        const response = await axios.post('/api/getorder/getuserorder', {
+            userId: currentUser.userId,
+            name: currentUser.name,
+            email: currentUser.email
+
         });
         console.log(response);
         dispatch({
