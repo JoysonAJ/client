@@ -10,8 +10,8 @@ import Error from "../components/Error";
 
 function BasicPlans(props) {
 
-    const dispatch = useDispatch();
 
+    const dispatch = useDispatch();
     const channelBasicState = useSelector(state => state.getAllChannelReducers);
     const {channelBasic, error, loading} = channelBasicState
 
@@ -42,17 +42,6 @@ function BasicPlans(props) {
                         })
                     )
                 }
-
-                {/*{data.map(channel => {*/}
-                {/*    return (*/}
-                {/*        <div className="col-md-4 p-3">*/}
-                {/*            <div className={"channel-pack-style"}>*/}
-                {/*                <ChannelBundel channel={channel}/>*/}
-                {/*            </div>*/}
-
-                {/*        </div>*/}
-                {/*    );*/}
-                {/*})*/}
             </div>
         </>
     );

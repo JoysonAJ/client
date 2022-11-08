@@ -3,8 +3,10 @@ import {Button, Modal} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 import {addToCart} from "../actions/cartAction";
 
-function ChannelBundel({channel}) {
 
+
+function ChannelBundel({channel}) {
+    console.log("Hello from Channel Bundel")
     const [planTime, setPlanTime] = useState(1);
     const [planType, setPlanType] = useState('Basic');
 
