@@ -6,7 +6,6 @@ import {addToCart} from "../actions/cartAction";
 
 
 function ChannelBundel({channel}) {
-    console.log("Hello from Channel Bundel")
     const [planTime, setPlanTime] = useState(1);
     const [planType, setPlanType] = useState('Basic');
 

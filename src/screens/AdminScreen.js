@@ -29,7 +29,7 @@ function AdminScreen(props) {
                     <h1 className={"adminHeading text-center bg-black text-light p-2"}>
                         Admin Panel
                     </h1>
-                    <Col md={4} className={"SideButtonAdmin"}>
+                    <Col md={2} className={"SideButtonAdmin"}>
                         <ButtonGroup vertical>
                             <Button className={"m-0 p-4 sidebtn "}
                                     onClick={() => {

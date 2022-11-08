@@ -9,6 +9,7 @@ import ChannelBundel from "../ChannelBundel";
 import {getAllChannel} from "../../actions/chBasicAction";
 import AdminChannelPack from "./AdminChannelPack";
 import axios from "axios";
+import {Table} from "react-bootstrap";
 
 // async function PackList(props) {
 function PackList(props) {
@@ -26,8 +27,8 @@ function PackList(props) {
         dispatch(getAllChannel());
     }, []);
 
-    console.log(channelBasic)
 
+    let i=0;
     return (
         <>
             <div className="row ">
@@ -36,16 +37,46 @@ function PackList(props) {
                 ) : (
                     //Channel contains data from the data base
 
-                    channelBasic.map(channel => {
-                        return (
-                            <div className="col-md-4 p-10" key={channel._id}>
-                                <div className={"channel-pack-style m-5 "}>
-                                    <ChannelBundel channel={channel}/>
-                                </div>
+                    <Table striped bordered hover>
+                        <thead>
+                        <tr>
+                            <th>S/N</th>
+                            <th>Plan Name</th>
+                            <th>Plan Type</th>
+                            <th>Prices</th>
+                            <th> Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {
 
-                            </div>
-                        );
-                    })
+                            channelBasic  && channelBasic.map(channel => {
+                                console.log(channelBasic)
+                            return(
+                                <tr>
+                                    <td>
+                                        {++i}
+                                    </td>
+
+                                    <td>
+                                        {channel.name}
+                                    </td>
+
+                                    <td>
+                                        {channel.categories}
+                                    </td>
+
+                                    <td>
+                                        {channel.price[0]["Basic"]}
+                                    </td>
+
+
+                                </tr>
+                            )
+                            })
+                        }
+                        </tbody>
+                    </Table>
                 )
                 }
             </div>

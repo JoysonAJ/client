@@ -1,16 +1,16 @@
 export const getAllChannelReducers = (state = {channelBasic: []}, action) => {
  // const getAllChannelReducers = (state = {channelBasic: []}, action) => {
-    console.log("Step1")
+
     switch (action.type) {
         case 'GET_CHANNEL_REQUEST':
-            console.log("Step2")
+
             return {
 
                 loading: true,
                 ...state
             }
         case 'GET_PIZZAS_SUCCESS':
-            console.log("Step3")
+
             return {
 
                 loading: false,
