@@ -4,12 +4,13 @@ import {useDispatch, useSelector} from "react-redux";
 import Loading from "../Loading";
 import Error from "../Error";
 import Success from "../Success";
-
+import {FaEdit} from "react-icons/fa"
 import ChannelBundel from "../ChannelBundel";
 import {getAllChannel} from "../../actions/chBasicAction";
 import AdminChannelPack from "./AdminChannelPack";
 import axios from "axios";
 import {Table} from "react-bootstrap";
+import {TiDelete} from "react-icons/ti";
 
 // async function PackList(props) {
 function PackList(props) {
@@ -68,6 +69,13 @@ function PackList(props) {
 
                                     <td>
                                         {channel.price[0]["Basic"]}
+                                    </td>
+
+                                    <td className={'icon-channel'}>
+                                       <div className={"p-2 w-100 "}>
+                                           <FaEdit className={" text-primary icon-channel w-50 "}/>
+                                           <TiDelete className={"text-danger  w-50 "}/>
+                                       </div>
                                     </td>
 
 

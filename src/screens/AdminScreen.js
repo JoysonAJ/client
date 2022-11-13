@@ -53,8 +53,8 @@ function AdminScreen(props) {
 
                             <Button className={"m-0 p-4 sidebtn "}
                                     onClick={() => {
-                                        // navigate("admin/addpack")
-                                        window.location.href = "admin/addpack";
+                                        navigate("admin/addpack")
+                                        // window.location.href = "admin/addpack";
                                     }
                                     }
                             >
