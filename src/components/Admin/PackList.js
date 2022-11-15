@@ -68,6 +68,7 @@ function PackList(props) {
                                     </td>
 
                                     <td>
+                                        {}
                                         {channel.price[0]["Basic"]}
                                     </td>
 
