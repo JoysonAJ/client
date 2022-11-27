@@ -11,6 +11,8 @@ import AdminChannelPack from "./AdminChannelPack";
 import axios from "axios";
 import {Table} from "react-bootstrap";
 import {TiDelete} from "react-icons/ti";
+import {Link} from "react-router-dom";
+import {deleteChannel} from "../../actions/editChPackAction";
 
 // async function PackList(props) {
 function PackList(props) {
@@ -74,8 +76,18 @@ function PackList(props) {
 
                                     <td className={'icon-channel'}>
                                        <div className={"p-2 w-100 "}>
-                                           <FaEdit className={" text-primary icon-channel w-50 "}/>
-                                           <TiDelete className={"text-danger  w-50 "}/>
+                                           <Link to={`/admin/editpack/${channel._id}`}>
+                                               <FaEdit className={" text-primary icon-channel w-50 "}/>
+                                           </Link>
+                                           {/*<Link to={}>*/}
+                                               <TiDelete className={"text-danger icon-delete w-50 "}
+                                               onClick={() =>{
+                                                    dispatch(deleteChannel(channel._id))
+                                                }
+                                               }
+
+                                               />
+                                           {/*</Link>*/}
                                        </div>
                                     </td>
 

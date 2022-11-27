@@ -1,29 +1,28 @@
-import React, {useEffect} from 'react';
-import {Button, ButtonGroup, Col, Container, Row} from "react-bootstrap";
-import {BrowserRouter as Router, Routes, Route, useNavigate, Link} from 'react-router-dom';
-import CustomerList from "../components/Admin/CustomerList";
-import AllRecharges from "../components/Admin/AllRecharges";
-import AddNewPack from "../components/Admin/AddNewPack";
-import PackList from "../components/Admin/PackList";
+import React, {useEffect, useState} from 'react';
+import {Route, Routes, useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import EditChannel from "../components/Admin/EditChannel";
+import {Button, ButtonGroup, Col, Container, Row} from "react-bootstrap";
+import CustomerList from "./CustomerList";
+import AllRecharges from "./AllRecharges";
+import AddNewPack from "./AddNewPack";
+import PackList from "./PackList";
+import Loading from "../Loading";
+import Error from "../Error";
+import Success from "../Success";
+import {getChannelById} from "../../actions/editChPackAction";
+import EditchannelComponent from "./editchannelComponent";
 
-function AdminScreen(props) {
+function EditChannel(props) {
+
     const navigate = useNavigate();
 
-    //extracting the Admin from the dataBase for the admin route
-    const userState = useSelector(state => state.loginUserReducer);
-
-    const {currentUser} = userState;
-    useEffect(() => {
-        //fist check the user is logged in or not then only allowed they are admin or receptionist
-        if (localStorage.getItem("currentUser") === null || (!currentUser.isAdmin && !currentUser.isReceptionist)) {
-            navigate("/")
-        }
-    }, []);
+    //jugade
+    // const updatePackState = useSelector(state => state.UpdateChannelReducer);
+    // const {updateLoading, updateSuccess, updateError} = updatePackState
 
     return (
         <>
+            {/*{updateError && <Success success={"Updated Sucessfully"}/>}*/}
             {/*<Router>*/}
             <Container>
                 <Row>
@@ -54,7 +53,7 @@ function AdminScreen(props) {
 
                             <Button className={"m-0 p-4 sidebtn "}
                                     onClick={() => {
-                                            navigate("admin/addpack")
+                                        navigate("admin/addpack")
                                         // window.location.href = "admin/addpack";
                                     }
                                     }
@@ -78,6 +77,7 @@ function AdminScreen(props) {
                     </Col>
 
                     <Col>
+                        <EditchannelComponent />
 
                         <Routes>
                             {/*<Route*/}
@@ -88,7 +88,7 @@ function AdminScreen(props) {
 
                             <Route exact path={"/admin/addpack"} element={<AddNewPack/>}/>
                             <Route exact path={"/admin/pacllist"} element={<PackList/>}/>
-                            {/*<Route exact path={"/pacllist"} element={<PackList/>}/>*/}
+                            <Route exact path={"/pacllist"} element={<PackList/>}/>
                         </Routes>
 
 
@@ -101,5 +101,4 @@ function AdminScreen(props) {
     );
 }
 
-export default AdminScreen;
-
+export default EditChannel;

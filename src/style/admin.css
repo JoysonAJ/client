@@ -15,4 +15,6 @@
 .sideBtn{
 
 }
-
+.icon-delete{
+    cursor: pointer;
+}

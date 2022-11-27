@@ -7,6 +7,7 @@ import {loginUserReducer, registerUserReducer} from "./reducers/userReducer";
 import {rechargeOrderReducer} from "./reducers/orderReducer";
 import {getUserOrderReducer} from "./reducers/GetOrderReducer";
 import {AddNewPackReducer} from "./reducers/addNewPackReducer";
+import {editChannelByIdReducer, UpdateChannelReducer} from "./reducers/editChannelReducer";
 
 
 const finalReducer = combineReducers({
@@ -14,9 +15,11 @@ const finalReducer = combineReducers({
     CartReducer: CartReducer,
     registerUserReducer: registerUserReducer,
     loginUserReducer: loginUserReducer,
-    rechargeOrderReducer:rechargeOrderReducer,
-    getUserOrderReducer:getUserOrderReducer,
-    AddNewPackReducer:AddNewPackReducer
+    rechargeOrderReducer: rechargeOrderReducer,
+    getUserOrderReducer: getUserOrderReducer,
+    AddNewPackReducer: AddNewPackReducer,
+    editChannelByIdReducer: editChannelByIdReducer,
+    UpdateChannelReducer: UpdateChannelReducer
 })
 
 const cartItem = localStorage.getItem('cartItem') ? JSON.parse(localStorage.getItem('cartItem')) : []
@@ -31,9 +34,9 @@ const initialState = {
     loginUserReducer: {
         currentUser: currentUser
     },
-    rechargeOrderReducer:{
-        cartItem:cartItem,
-        currentUser:currentUser
+    rechargeOrderReducer: {
+        cartItem: cartItem,
+        currentUser: currentUser
     }
 
 }
