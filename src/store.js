@@ -5,7 +5,7 @@ import {getAllChannelReducers} from "./reducers/chBasicReducers";
 import {CartReducer} from "./reducers/cartReducer";
 import {loginUserReducer, registerUserReducer} from "./reducers/userReducer";
 import {rechargeOrderReducer} from "./reducers/orderReducer";
-import {getUserOrderReducer} from "./reducers/GetOrderReducer";
+import {getAllOrderReducer, getUserOrderReducer} from "./reducers/GetOrderReducer";
 import {AddNewPackReducer} from "./reducers/addNewPackReducer";
 import {editChannelByIdReducer, UpdateChannelReducer} from "./reducers/editChannelReducer";
 
@@ -19,7 +19,8 @@ const finalReducer = combineReducers({
     getUserOrderReducer: getUserOrderReducer,
     AddNewPackReducer: AddNewPackReducer,
     editChannelByIdReducer: editChannelByIdReducer,
-    UpdateChannelReducer: UpdateChannelReducer
+    UpdateChannelReducer: UpdateChannelReducer,
+    getAllOrderReducer:getAllOrderReducer
 })
 
 const cartItem = localStorage.getItem('cartItem') ? JSON.parse(localStorage.getItem('cartItem')) : []

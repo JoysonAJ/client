@@ -37,8 +37,6 @@ export const getUserOrder = () => async (dispatch, getState) => {
     dispatch({
         type: 'USER_ORDER_REQUEST'
     })
-
-
     try {
         const response = await axios.post('/api/getorder/getuserorder', {
             userId: currentUser.userId,
@@ -54,6 +52,27 @@ export const getUserOrder = () => async (dispatch, getState) => {
     } catch (e) {
         dispatch({
             type: 'USER_ORDER_FAILED',
+            payload: e,
+        });
+    }
+}
+
+export const getAllOrder = () => async (dispatch, getState) => {
+    console.log("getALL order action")
+    // const currentUser = getState().loginUserReducer.currentUser;
+    dispatch({
+        type: 'ALL_ORDER_REQUEST'
+    })
+    try {
+        const response = await axios.get('/api/admin/getallorder');
+        // console.log(response.data);
+        dispatch({
+            type: 'ALL_ORDER_SUCCESS',
+            payload: response.data,
+        });
+    } catch (e) {
+        dispatch({
+            type: 'ALL_ORDER_FAILED',
             payload: e,
         });
     }
