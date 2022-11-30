@@ -25,11 +25,11 @@ function App() {
                     <Route
                         exact path={"/admin/editpack/:channelId"}
                         element={<EditChannel/>}/>
-                    {/*<Route exact path="/" element={<Basic_plans/>}/>*/}
-                    {/*<Route exact path="/cart" element={<CartScreen/>}/>*/}
-                    {/*<Route exact path="/Login" element={<LoginScreen/>}/>*/}
-                    {/*<Route exact path="/register" element={<RegisterScreen/>}/>*/}
-                    {/*<Route exact path="/mystatus" element={<OrderScreen/>}/>*/}
+                    <Route exact path="/" element={<Basic_plans/>}/>
+                    <Route exact path="/cart" element={<CartScreen/>}/>
+                    <Route exact path="/Login" element={<LoginScreen/>}/>
+                    <Route exact path="/register" element={<RegisterScreen/>}/>
+                    <Route exact path="/mystatus" element={<OrderScreen/>}/>
                         {/*<Route exact path="/" element={<Home_layout />} />*/}
                         {/*<Route exact path="/about" element={<About_page />} />*/}
                         {/*<Route exact path="/login" element={<Login />} />*/}

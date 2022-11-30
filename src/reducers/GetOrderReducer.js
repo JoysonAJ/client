@@ -5,6 +5,7 @@ export const getUserOrderReducer = (state = {orders: []}, action) => {
                 loading: true
             })
         case 'USER_ORDER_SUCCESS':
+
             return ({
                 loading: false,
                 success: true,
