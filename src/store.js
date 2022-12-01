@@ -9,6 +9,7 @@ import {getAllOrderReducer, getUserOrderReducer} from "./reducers/GetOrderReduce
 import {AddNewPackReducer} from "./reducers/addNewPackReducer";
 import {editChannelByIdReducer, UpdateChannelReducer} from "./reducers/editChannelReducer";
 import {getAllusersReducers} from "./reducers/adminUserReducers";
+import {communityQuestionReducer} from "./reducers/communityReducers";
 
 
 const finalReducer = combineReducers({
@@ -22,7 +23,8 @@ const finalReducer = combineReducers({
     editChannelByIdReducer: editChannelByIdReducer,
     UpdateChannelReducer: UpdateChannelReducer,
     getAllOrderReducer:getAllOrderReducer,
-    getAllusersReducers:getAllusersReducers
+    getAllusersReducers:getAllusersReducers,
+    communityQuestionReducer:communityQuestionReducer
 })
 
 const cartItem = localStorage.getItem('cartItem') ? JSON.parse(localStorage.getItem('cartItem')) : []

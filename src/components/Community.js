@@ -1,11 +1,15 @@
 import React from 'react';
+import PostQuestion from "./community/PostQuestion";
+import GetQuestions from "./community/GetQuestions";
 
 function Community(props) {
     return (
         <>
-            <h1>
-                HELLO
-            </h1>
+               <PostQuestion />
+                <br />
+                <GetQuestions />
+
+
         </>
 
     );

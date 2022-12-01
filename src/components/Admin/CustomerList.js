@@ -41,8 +41,7 @@ function CustomerList(props) {
 
                 {users &&
                     users.map(userInfo => {
-                        {console.log(`$IS admin available ${userInfo.isAdmin}`)}
-                        {console.log(`$IS admin available ${userInfo.isReceptionist}`)}
+
                         return (
                             // {if(userInfo)}
                             <tr key={userInfo._id}>
