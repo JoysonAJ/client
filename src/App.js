@@ -10,6 +10,7 @@ import OrderScreen from "./screens/OrderScreen";
 import AdminScreen from "./screens/AdminScreen";
 import EditChannel from "./components/Admin/EditChannel";
 import React from "react";
+import Community from "./components/Community";
 
 function App() {
 
@@ -30,6 +31,9 @@ function App() {
                     <Route exact path="/Login" element={<LoginScreen/>}/>
                     <Route exact path="/register" element={<RegisterScreen/>}/>
                     <Route exact path="/mystatus" element={<OrderScreen/>}/>
+                    {/*<Route exact path="/mystatus" element={<OrderScreen/>}/>*/}
+                    <Route exact path="/communitypage" element={<Community />}/>
+
                         {/*<Route exact path="/" element={<Home_layout />} />*/}
                         {/*<Route exact path="/about" element={<About_page />} />*/}
                         {/*<Route exact path="/login" element={<Login />} />*/}

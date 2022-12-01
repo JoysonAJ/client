@@ -63,7 +63,7 @@ export default function Navbar() {
                                                     </Link>
                                                 </li>
                                                 <li className={"drop-down-login-details"}>
-                                                    <a className="dropdown-item text-light " href="#">Community</a>
+                                                    <Link className="dropdown-item text-light " to="/communitypage">Community</Link>
                                                 </li>
                                                 <li>
                                                     <hr className="dropdown-divider"/>

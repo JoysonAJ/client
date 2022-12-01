@@ -7,7 +7,7 @@ export const getallUsers = () => async (dispatch) => {
 
     try {
         const response = await axios.get('/api/admin/getalluserdetails');
-        console.log(response);
+        // console.log(response);
         dispatch({type: 'GET_ALL_USER_SUCCESS', payload: response.data});
     } catch (e) {
         console.log("error ocured.....");
