@@ -13,6 +13,9 @@ function CustomerList(props) {
     const userState = useSelector(state => state.getAllusersReducers)
     const {loading, success, users} = userState;
     console.log(users)
+    const userStateList = useSelector(state => state.loginUserReducer);
+
+    const {currentUser} = userStateList;
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getallUsers())
@@ -33,8 +36,9 @@ function CustomerList(props) {
                     <th>Email Id</th>
                     <th>user_id</th>
                     <th>Joined date</th>
-
+                    {currentUser.isAdmin &&
                     <th>Remove users</th>
+                    }
                 </tr>
                 </thead>
                 <tbody>
@@ -64,7 +68,7 @@ function CustomerList(props) {
                                 <td>
                                     {userInfo.createdAt.substring(0, 10).split("-").reverse().join("-")}
                                 </td>
-
+                                { currentUser.isAdmin &&
                                 <td className={'icon-channel'}>
                                     <div className={"p-2 w-100 "}>
                                         {/*<Link to={`/admin/editpack/${channel._id}`}>*/}
@@ -81,6 +85,7 @@ function CustomerList(props) {
                                         {/*</Link>*/}
                                     </div>
                                 </td>
+                                }
                             </tr>
                         )
                     })

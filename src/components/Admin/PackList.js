@@ -24,6 +24,9 @@ function PackList(props) {
     const channelBasicState = useSelector(state => state.getAllChannelReducers);
     const {channelBasic, error, loading} = channelBasicState
 
+    const userStateList = useSelector(state => state.loginUserReducer);
+
+    const {currentUser} = userStateList;
 
     useEffect(() => {
         //parameter from the file actions/chBasicsAction
@@ -80,6 +83,7 @@ function PackList(props) {
                                                <FaEdit className={" text-primary icon-channel w-50 "}/>
                                            </Link>
                                            {/*<Link to={}>*/}
+                                           {currentUser.isAdmin &&
                                                <TiDelete className={"text-danger icon-delete w-50 "}
                                                onClick={() =>{
                                                     dispatch(deleteChannel(channel._id))
@@ -87,6 +91,7 @@ function PackList(props) {
                                                }
 
                                                />
+                                           }
                                            {/*</Link>*/}
                                        </div>
                                     </td>

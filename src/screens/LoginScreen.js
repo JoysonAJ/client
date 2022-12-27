@@ -12,12 +12,12 @@ function LoginScreen(props) {
 
     //Login status
     const logInUserState = useSelector(state => state.loginUserReducer);
-    const{loading,error} = logInUserState;
+    const{loading,error,currentUser} = logInUserState;
 
     const dispatch = useDispatch();
-
+    // console.log(currentUser)
     useEffect(() => {
-       if(localStorage.getItem("currentUser")){
+        if(localStorage.getItem("currentUser") ){
            window.location.href = "/";
        }
     }, []);

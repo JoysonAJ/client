@@ -51,7 +51,7 @@ function AdminScreen(props) {
                             >
                                 ALL PLANS
                             </Button>
-
+                            {currentUser.isAdmin &&
                             <Button className={"m-0 p-4 sidebtn "}
                                     onClick={() => {
                                             navigate("admin/addpack")
@@ -61,7 +61,7 @@ function AdminScreen(props) {
                             >
                                 ADD NEW PACK
                             </Button>
-
+                            }
                             <Button className={"m-0 p-4 sidebtn "}
                                     onClick={() => {
 

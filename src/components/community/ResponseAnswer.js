@@ -19,21 +19,6 @@ function ResponseAnswer({answer}) {
 
                                     </blockquote>
                                 </Card.Body>
-
-                                {/*<Card.Footer className="text-muted bg-transparent">*/}
-                                {/*    <div className={"text-end"}>*/}
-
-                                {/*        <Button variant="danger"*/}
-                                {/*                className={"m-2"}*/}
-                                {/*                onClick={resopundeCanel}*/}
-                                {/*        >Cancel</Button>*/}
-
-                                {/*        <Button variant="primary"*/}
-                                {/*                className={"ml-auto"}*/}
-                                {/*                onClick={resopundeHandel}*/}
-                                {/*        >Answer</Button>*/}
-                                {/*    </div>*/}
-                                {/*</Card.Footer>*/}
                             </Card>
                         </div>
                     )
