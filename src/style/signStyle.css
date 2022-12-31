@@ -21,6 +21,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-transform: uppercase;
 }
 
 .btn-login{
@@ -48,4 +49,9 @@
     padding: 10px;
     margin-left: 0px;
 
+}
+
+.navigation{
+    position: fixed;
+    z-index: 100;
 }

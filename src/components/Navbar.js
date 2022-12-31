@@ -5,6 +5,7 @@ import {CartReducer} from "../reducers/cartReducer";
 import {loginUser, logoutUser} from "../actions/userAction";
 
 
+
 export default function Navbar() {
     const userState = useSelector(state => state.loginUserReducer)
     const {currentUser} = userState;
@@ -13,7 +14,7 @@ export default function Navbar() {
     const cartState = useSelector(state => state.CartReducer);
     return (
         <>
-            <div className={"navbar-font col"}>
+            <div className={"navbar-font col sticky-top"}>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg p-3 mb-5 bg-dark ">
                     <div className="container">
                         {/* Navbar brand */}
@@ -51,6 +52,7 @@ export default function Navbar() {
 
                                             <li className="nav-item">
                                                 {(!currentUser.isAdmin && !currentUser.isReceptionist) &&
+
                                                     <Link className="nav-link d-flex align-items-center" to="/cart">
                                                         Cart {cartState.cartItem.length}
                                                     </Link>

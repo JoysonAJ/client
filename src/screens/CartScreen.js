@@ -6,6 +6,7 @@ import CheckOut from "../components/CheckOut";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
 import Success from "../components/Success";
+import EmptyCart from "./EmptyCart";
 
 function CartScreen(props) {
 
@@ -13,6 +14,7 @@ function CartScreen(props) {
     // const {success,error, loading} = orderState
     const cartState = useSelector(state => state.CartReducer);
     const cartItem = cartState.cartItem;
+    console.log(cartItem.length)
     const dispatch = useDispatch()
 
     let totalAmount = cartItem.reduce(
@@ -24,6 +26,11 @@ function CartScreen(props) {
             {/*{loading && (<Loading/>)}*/}
             {/*{error && (<Error error={"Not done payment"}/>)}*/}
             {/*{success && <Success success={"Payment Completed plan will activate "}/>}*/}
+            {(cartItem.length) == 0 ? (<>
+                    <EmptyCart />
+                </>
+                ):(
+
             <div>
                 <div className={""}>
                     <div className={"cart-heading"}>
@@ -104,6 +111,7 @@ function CartScreen(props) {
 
                 </div>
             </div>
+                )}
         </>
     );
 }

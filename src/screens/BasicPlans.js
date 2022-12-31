@@ -6,14 +6,18 @@ import {getAllChannel} from "../actions/chBasicAction";
 import data from "../packData";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
+import {useNavigate} from "react-router-dom";
 
 
 function BasicPlans(props) {
+
+    // const userDetails = useSelector(state => state.loginUserReducer)
 
 
     const dispatch = useDispatch();
     const channelBasicState = useSelector(state => state.getAllChannelReducers);
     const {channelBasic, error, loading} = channelBasicState
+
 
 
     useEffect(() => {

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from "react-router-dom";
+import {Link } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {loginUser} from "../actions/userAction";
 import Loading from "../components/Loading";
@@ -13,6 +13,8 @@ function LoginScreen(props) {
     //Login status
     const logInUserState = useSelector(state => state.loginUserReducer);
     const{loading,error,currentUser} = logInUserState;
+
+
 
     const dispatch = useDispatch();
     // console.log(currentUser)
@@ -30,16 +32,19 @@ function LoginScreen(props) {
     }
     return (
         <>
-            <div className={"login-container"}>
+            <div className={"login-container "}>
 
-                <div className={"card loginCard shadow-lg p-3 mb-5 bg-white rounded border border-warning"}>
+                <div className={"card loginCard shadow-lg p-3 mb-5 bg-white rounded border border-danger "}>
                     {loading && (<Loading />)}
-                    {error && (<Error error={"Invalid ....."}/>)}
+                    {/*{   console.log(error)*/}
+
+                    { error && (<Error error={error}/>)}
+
 
                     <div className=" mb-4 p-2  ">
                         <input type="text"
                                className="form-control p-2 mt-4 shadow-lg p-3 bg-white rounded border border-info"
-                               placeholder={"Enter the username"}
+                               placeholder={"Enter the user Id"}
                                value={userId}
                                onChange={
                                    (e) => {
@@ -66,7 +71,8 @@ function LoginScreen(props) {
 
                     <div className={"btn-login"}>
                         <button type="button"
-                                className="btn btn-primary btn-block justify-content-center mb-4 "
+                                className="btn btn-warning btn-block justify-content-center mb-4 w-75 "
+
                                 onClick={HandleLogIn}
                         >
                             Sign in
@@ -76,7 +82,7 @@ function LoginScreen(props) {
                     {/* Register buttons */}
                     <div>
                         <div className="text-center">
-                            <p>Not a member? <Link to="/register">Register</Link></p>
+                            <p className={"font-weight-bold"}>Not a member? <Link to="/register">Register</Link></p>
                         </div>
                     </div>
                 </div>

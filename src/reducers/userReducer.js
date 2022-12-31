@@ -1,3 +1,5 @@
+import error from "../components/Error";
+
 export const registerUserReducer = (state = {}, action) => {
     switch (action.type) {
         case 'USER_REGISTER_REQUEST':
@@ -12,8 +14,9 @@ export const registerUserReducer = (state = {}, action) => {
         case 'USER_REGISTER_FAILED':
             return ({
                 loading: false,
-                error: action.payload
+                error: action.payload,
             })
+
         default:
             return state;
     }

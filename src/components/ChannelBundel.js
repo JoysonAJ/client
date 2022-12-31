@@ -16,9 +16,13 @@ function ChannelBundel({channel}) {
 
     const dispatch = useDispatch();
 
+    const handleClose1 = () => setShow(false);
+    // const handleShow = () => setShow(true);
+
     function AddToCart() {
         // dispatch(addToCart(channel, validity, plan_type))
         //value pass to cart Page
+        alert(`${channel.name.toUpperCase()} added to cart`)
         dispatch(addToCart(channel, planTime, planType));
     }
 
@@ -112,6 +116,8 @@ function ChannelBundel({channel}) {
 
                 </Modal.Footer>
             </Modal>
+
+
         </>
 
     );

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {registerUser} from "../actions/userAction";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import Loading from "../components/Loading";
 import Success from "../components/Success";
 import Error from "../components/Error";
@@ -21,13 +21,19 @@ function RegisterScreen(props) {
     const registerUserState = useSelector(state => state.registerUserReducer);
     const {loading, success, error} = registerUserState;
 
+    const navigate = useNavigate();
+
     const HandleRegister = () => {
         if((name ==="") &&(userId ==="") && (password ==="") && (email === "") && (cnfrmPassword =="")){
-            alert("every field should be field")
+            alert("All fields are required")
+        }else if(password.length < 8){
+            alert("Password Length should be 8")
         }
+
         else if (password !== cnfrmPassword) {
-            alert("Password should match")
-        } else {
+            alert("Password and Confirmed Password should match")
+        }
+        else {
             const userInfo = {
                 name, email, userId, password
             }
@@ -44,7 +50,11 @@ function RegisterScreen(props) {
                         <div className={"col-md-5 text-left"}>
                             <div className={"form-group card p-4 border-primary"}>
                                 {loading && <Loading/>}
-                                {success && < Success success={"Registration Completed........."}/>}
+                                {success &&
+                                    navigate("/Login")
+                                    // < Success success={"Registration Completed........."}/>
+
+                                }
                                 {error && <Error error={error}/>}
                                 <input type={"text"} placeholder={"Enter the Full Name"}
                                        className={"form-control loginInput border-success p-2"}
