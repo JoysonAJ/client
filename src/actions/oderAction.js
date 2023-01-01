@@ -25,7 +25,8 @@ export const rechargedPack = (token, subTotal) => async (dispatch, getState) => 
         console.log(response)
     } catch (e) {
         dispatch({
-            type: 'RECHARGE_ORDER_FAILED'
+            type: 'RECHARGE_ORDER_FAILED',
+            payload:e
         })
         console.log(e)
     }

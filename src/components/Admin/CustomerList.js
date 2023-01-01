@@ -24,9 +24,7 @@ function CustomerList(props) {
     return (
 
         <>
-            <h1>
-                CUSTOMER LIST...
-            </h1>
+
 
             <Table striped bordered hover>
                 <thead>
@@ -76,6 +74,7 @@ function CustomerList(props) {
 
                                         <TiUserDelete className={"text-danger icon-delete w-75 "}
                                                   onClick={() =>{
+                                                      alert(`The customer deleted is  ${userInfo.name}`)
                                                       dispatch(deleteUser(userInfo._id))
                                                   }
 

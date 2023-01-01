@@ -19,9 +19,7 @@ function AllRecharges(props) {
     let numberSerial = 0
     return (
         <>
-            <h1>
-                ALL Reacharges
-            </h1>
+
             {loading && <Loading/>}
             {/*{error && <Error error={"Failed fecth data"}/>}*/}
             <Table striped bordered hover>

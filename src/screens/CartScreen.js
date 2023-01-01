@@ -91,6 +91,7 @@ function CartScreen(props) {
                                     <div className={"m-1 w-100"}>
                                         <i className="fa  fa-trash mt-5 w-25 " aria-hidden="true"
                                            onClick={() => {
+                                               // alert(`${item.name} Removed From Cart`)
                                                dispatch(deleteFromCart(item))
                                            }
                                            }></i>
